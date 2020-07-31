@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 
+import {TaskService} from "../task.service";
+
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -14,9 +16,9 @@ export class AddTaskComponent implements OnInit {
   description: string = 'Add an item';
 
   form: FormGroup
-  tasks: object[] = [];
+  // tasks: object[] = [];
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(){
     this.form = new FormGroup({
@@ -25,9 +27,14 @@ export class AddTaskComponent implements OnInit {
     })
   }
 
+  // addTask() {
+  //   this.tasks.unshift({...this.form.value});
+  //   this.onAdd.emit(this.tasks)
+  //   this.form.reset()
+  // }
+
   addTask() {
-    this.tasks.unshift({...this.form.value});
-    this.onAdd.emit(this.tasks)
+    this.taskService.addTask({ ...this.form.value})
     this.form.reset()
   }
 
