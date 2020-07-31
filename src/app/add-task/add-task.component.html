@@ -1,0 +1,22 @@
+<div class="add-task">
+  <div class="container">
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
+    <form [formGroup]="form" (ngSubmit)="addTask()">
+      <div class="add-task__details">
+        <label class="">
+          <input type="text" class="add-task__description" placeholder="Enter an task name" formControlName="name">
+        </label>
+        <label>
+          <input type="date" class="add-task__date" formControlName="date">
+        </label>
+      </div>
+      <div class="add-task__button">
+        <button class="btn" type="submit">Add task</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+

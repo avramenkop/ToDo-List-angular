@@ -1,0 +1,58 @@
+.add-task {
+
+  margin-bottom: 100px;
+
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input {
+    border: 2px solid #333333;
+    border-radius: 5px;
+    padding: 8px 0 8px 15px;
+    outline: none;
+  }
+
+  .add-task__details {
+    width: 80%;
+  }
+
+  .add-task__description {
+    width: 70%;
+    position: relative;
+    top: 1px;
+    margin-right: 20px;
+  }
+
+  .add-task__description[placeholder] {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .add-task__description {
+    color: #333;
+  }
+
+  .add-task__date {
+    margin-right: 20px;
+    width: 20%;
+  }
+
+  .btn {
+    cursor: pointer;
+    padding: 10px 20px;
+    line-height: 20px;
+    background: #1961FE;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+
+}

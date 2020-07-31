@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'todo-angular';
+
+  tasks: object[]
+
+  receiveTasks(event) {
+    this.tasks = event;
+  }
+
 }

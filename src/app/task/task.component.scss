@@ -1,0 +1,21 @@
+.task .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px dashed #E9E8E9;
+  padding: 30px 0;
+}
+
+.task-description {
+  display: flex;
+}
+
+.task-description #task {
+  position: relative;
+  top: 5px;
+}
+
+.task-date {
+  margin: 0 20px;
+}
+
