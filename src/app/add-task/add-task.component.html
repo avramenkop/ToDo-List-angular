@@ -5,7 +5,7 @@
     <form [formGroup]="form" (ngSubmit)="addTask()">
       <div class="add-task__details">
         <label class="">
-          <input type="text" class="add-task__description" placeholder="Enter an task name" formControlName="name">
+          <input type="text" class="add-task__name" placeholder="Enter the task name" formControlName="name">
         </label>
         <label>
           <input type="date" class="add-task__date" formControlName="date">

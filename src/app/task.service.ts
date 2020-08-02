@@ -15,10 +15,31 @@ export class TaskService {
 
   addTask(data) {
     this.tasks.unshift(data)
+    console.log(this.tasks)
   }
 
   deleteTask(todo) {
     this.tasks = this.tasks.filter(task => task.name !== todo.name)
+  }
+
+  markAsDone() {
+
+  }
+
+
+
+  searchByName(inputValue) {
+
+    console.log('before filter', this.tasks)
+
+    this.tasks = this.tasks.filter(task => {
+      if (task.name.search(inputValue) != -1) {
+        return task
+      }
+    })
+
+    console.log('after filter', this.tasks)
+
   }
 
 }

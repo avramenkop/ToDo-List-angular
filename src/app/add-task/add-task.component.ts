@@ -16,25 +16,18 @@ export class AddTaskComponent implements OnInit {
   description: string = 'Add an item';
 
   form: FormGroup
-  // tasks: object[] = [];
 
   constructor(private taskService: TaskService) { }
 
   ngOnInit(){
     this.form = new FormGroup({
       name: new FormControl(),
-      date: new FormControl()
+      date: new FormControl(),
     })
   }
 
-  // addTask() {
-  //   this.tasks.unshift({...this.form.value});
-  //   this.onAdd.emit(this.tasks)
-  //   this.form.reset()
-  // }
-
   addTask() {
-    this.taskService.addTask({ ...this.form.value})
+    this.taskService.addTask({ ...this.form.value, isHidden: false})
     this.form.reset()
   }
 
