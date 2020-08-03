@@ -1,17 +1,38 @@
+<div class="search-task">
+  <div class="container">
+    <h1>Todos</h1>
+    <div class="search-task__options">
+      <p>Filter by name or date</p>
+      <label class="">
+        <input type="text" class="search-task__name" placeholder="Type to search" [(ngModel)]="searchTerm">
+      </label>
+      <label>
+        <input type="date" class="search-task__date" [(ngModel)]="searchDate">
+      </label>
+    </div>
+  </div>
+</div>
+
+<!--*ngIf="taskService.tasks.length > 1-->
+
+
 <div class="tasks" *ngIf="taskService.tasks.length">
-  <div class="task" *ngFor="let task of taskService.tasks">
+  <div class="task" *ngFor="let task of taskService.tasks | searchByName: searchTerm | searchByDate: searchDate">
     <div class="container">
-      <div class="task-description">
-        <label for="task">
-          <input type="checkbox" id="task">
-        </label>
-        <p class="task-date">{{task.date | date:'dd/MM/yyyy'}}.</p>
-        <p class="task-name">{{task.name}}</p>
-      </div>
-      <div class="task-buttons">
-        <button class="edit">Edit</button>
-        <button class="delete" (click)="deleteTask(task)">Delete</button>
+      <div class="task-wrapper">
+        <div class="task-description">
+          <label for="task">
+            <input type="checkbox" id="task">
+          </label>
+          <p class="task-date">{{task.date | date:'dd/MM/yyyy'}}.</p>
+          <p class="task-name">{{task.name}}</p>
+        </div>
+        <div class="task-buttons">
+          <button class="edit">Edit</button>
+          <button class="delete" (click)="deleteTask(task)">Delete</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

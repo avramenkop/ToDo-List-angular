@@ -9,12 +9,15 @@ import {TaskService} from "../task.service";
 })
 export class SearchTaskComponent implements OnInit {
 
+  taskName: string
+
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
+    console.log(this.taskName)
   }
 
-  searchByName(event) {
-    this.taskService.searchByName(event.target.value)
-  }
+  // searchByName(event) {
+  //   this.taskService.searchByName(event.target.value)
+  // }
 }

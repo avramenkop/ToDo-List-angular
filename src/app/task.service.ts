@@ -32,7 +32,7 @@ export class TaskService {
 
     console.log('before filter', this.tasks)
 
-    this.tasks = this.tasks.filter(task => {
+    this.tasks.filter(task => {
       if (task.name.search(inputValue) != -1) {
         return task
       }

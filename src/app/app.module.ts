@@ -8,6 +8,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TaskComponent } from './task/task.component';
 import { SearchTaskComponent } from './search-task/search-task.component';
+import {SearchByNamePipe} from "./searchByName.pipe";
+import {SearchByDatePipe} from './searchByDate.pipe'
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { SearchTaskComponent } from './search-task/search-task.component';
     AddTaskComponent,
     TaskComponent,
     SearchTaskComponent,
+    SearchByNamePipe,
+    SearchByDatePipe,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,9 @@ import {TaskService} from "../task.service";
 })
 export class TaskComponent implements OnInit {
 
+  searchTerm = ''
+  searchDate
+
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
