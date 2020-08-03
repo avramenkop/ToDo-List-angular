@@ -1,7 +1,7 @@
 <div class="search-task">
   <div class="container">
     <h1>Todos</h1>
-    <div class="search-task-wrapper">
+    <div class="search-task-wrapper" *ngIf="taskService.tasks.length> 1">
       <div class="search-task__options">
         <p>Filter by name or date</p>
         <label class="">
@@ -18,7 +18,6 @@
   </div>
 </div>
 
-<!--*ngIf="taskService.tasks.length > 1-->
 
 
 <div class="tasks" *ngIf="taskService.tasks.length">

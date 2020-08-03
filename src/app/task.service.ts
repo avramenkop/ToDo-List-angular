@@ -23,6 +23,10 @@ export class TaskService {
     this.tasks = this.tasks.filter(task => task.name !== todo.name)
   }
 
+  addTaskToLocalStorage() {
+
+  }
+
   sortByDateAndName() {
     this.tasks.sort((a, b) => a.date.localeCompare(b.date) ||
       a.name.localeCompare(b.name))

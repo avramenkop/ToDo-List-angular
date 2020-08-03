@@ -14,6 +14,7 @@ export class AddTaskComponent implements OnInit {
 
   title: string = 'ToDo List';
   description: string = 'Add an item';
+  invalidFormStyles
 
   form: FormGroup
 
@@ -33,6 +34,9 @@ export class AddTaskComponent implements OnInit {
       this.taskService.addTask({...this.form.value, isHidden: false})
       this.form.reset()
       this.taskService.sortByDateAndName()
+      this.invalidFormStyles = {border: '2px solid #333333'}
+    } else {
+      this.invalidFormStyles = {border: '2px solid red'}
     }
   }
 

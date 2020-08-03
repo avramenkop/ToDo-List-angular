@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TaskComponent } from './task/task.component';
-import { SearchTaskComponent } from './search-task/search-task.component';
 import {SearchByNamePipe} from "./searchByName.pipe";
 import {SearchByDatePipe} from './searchByDate.pipe'
 
@@ -17,7 +16,6 @@ import {SearchByDatePipe} from './searchByDate.pipe'
     HeaderComponent,
     AddTaskComponent,
     TaskComponent,
-    SearchTaskComponent,
     SearchByNamePipe,
     SearchByDatePipe,
   ],
