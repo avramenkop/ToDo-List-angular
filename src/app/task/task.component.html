@@ -1,14 +1,19 @@
 <div class="search-task">
   <div class="container">
     <h1>Todos</h1>
-    <div class="search-task__options">
-      <p>Filter by name or date</p>
-      <label class="">
-        <input type="text" class="search-task__name" placeholder="Type to search" [(ngModel)]="searchTerm">
-      </label>
-      <label>
-        <input type="date" class="search-task__date" [(ngModel)]="searchDate">
-      </label>
+    <div class="search-task-wrapper">
+      <div class="search-task__options">
+        <p>Filter by name or date</p>
+        <label class="">
+          <input type="text" class="search-task__name" placeholder="Type to search" [(ngModel)]="searchTerm">
+        </label>
+        <label>
+          <input type="date" class="search-task__date" [(ngModel)]="searchDate">
+        </label>
+      </div>
+      <div class="search-task__button">
+        <button>Reset date</button>
+      </div>
     </div>
   </div>
 </div>

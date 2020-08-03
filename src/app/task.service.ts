@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,8 @@ export class TaskService {
 
   tasks = []
 
-  constructor() { }
+  constructor() {
+  }
 
   // getTasks(): object[] {
   //   return this.tasks
@@ -22,24 +23,9 @@ export class TaskService {
     this.tasks = this.tasks.filter(task => task.name !== todo.name)
   }
 
-  markAsDone() {
-
-  }
-
-
-
-  searchByName(inputValue) {
-
-    console.log('before filter', this.tasks)
-
-    this.tasks.filter(task => {
-      if (task.name.search(inputValue) != -1) {
-        return task
-      }
-    })
-
-    console.log('after filter', this.tasks)
-
+  sortByDateAndName() {
+    this.tasks.sort((a, b) => a.date.localeCompare(b.date) ||
+      a.name.localeCompare(b.name))
   }
 
 }

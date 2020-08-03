@@ -21,4 +21,5 @@ export class TaskComponent implements OnInit {
     this.taskService.deleteTask(task)
   }
 
+
 }

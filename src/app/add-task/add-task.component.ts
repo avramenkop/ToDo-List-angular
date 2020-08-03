@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {TaskService} from "../task.service";
 
@@ -17,19 +17,23 @@ export class AddTaskComponent implements OnInit {
 
   form: FormGroup
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService) {
+  }
 
-  ngOnInit(){
+  ngOnInit() {
     this.form = new FormGroup({
-      name: new FormControl(),
-      date: new FormControl(),
+      name: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
     })
   }
 
-  addTask() {
-    this.taskService.addTask({ ...this.form.value, isHidden: false})
-    this.form.reset()
-  }
 
+  addTask() {
+    if (this.form.valid) {
+      this.taskService.addTask({...this.form.value, isHidden: false})
+      this.form.reset()
+      this.taskService.sortByDateAndName()
+    }
+  }
 
 }
