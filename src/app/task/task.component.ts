@@ -10,7 +10,7 @@ import {TaskService} from "../task.service";
 export class TaskComponent implements OnInit {
 
   searchTerm = ''
-  searchDate
+  searchDate = ''
 
   constructor(public taskService: TaskService) { }
 
@@ -21,5 +21,8 @@ export class TaskComponent implements OnInit {
     this.taskService.deleteTask(task)
   }
 
+  resetDate() {
+    this.searchDate = null
+  }
 
 }

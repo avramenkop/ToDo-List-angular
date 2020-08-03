@@ -16,16 +16,15 @@ export class TaskService {
 
   addTask(data) {
     this.tasks.unshift(data)
-    console.log(this.tasks)
   }
 
   deleteTask(todo) {
     this.tasks = this.tasks.filter(task => task.name !== todo.name)
   }
 
-  addTaskToLocalStorage() {
-
-  }
+  // addTaskToLocalStorage() {
+  //   localStorage.setItem('todos', JSON.stringify(this.tasks))
+  // }
 
   sortByDateAndName() {
     this.tasks.sort((a, b) => a.date.localeCompare(b.date) ||
