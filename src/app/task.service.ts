@@ -19,7 +19,7 @@ export class TaskService {
   }
 
   deleteTask(todo) {
-    this.tasks = this.tasks.filter(task => task.name !== todo.name)
+    this.tasks = this.tasks.filter(task => task.name !== todo.name || task.date !== todo.date)
   }
 
   // addTaskToLocalStorage() {
