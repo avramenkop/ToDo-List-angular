@@ -33,8 +33,6 @@ export class AddTaskComponent implements OnInit {
     if (this.form.valid) {
       this.taskService.addTask({...this.form.value})
       this.form.reset()
-      this.taskService.sortByDateAndName()
-      // this.taskService.addTaskToLocalStorage()
       this.invalidFormStyles = {border: '2px solid #333333'}
     } else {
       this.invalidFormStyles = {border: '2px solid red'}

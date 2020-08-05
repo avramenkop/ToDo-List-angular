@@ -15,6 +15,7 @@ export class TaskComponent implements OnInit {
   constructor(public taskService: TaskService) { }
 
   ngOnInit(): void {
+    this.taskService.getTaskFromLocalStorage()
   }
 
   deleteTask(task) {
