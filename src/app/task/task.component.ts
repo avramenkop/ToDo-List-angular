@@ -14,7 +14,8 @@ export class TaskComponent implements OnInit {
   taskNameBeforeEditing = ''
   taskDateBeforeEditing = ''
 
-  constructor(public taskService: TaskService) { }
+  constructor(public taskService: TaskService) {
+  }
 
   ngOnInit(): void {
     this.taskService.getTaskFromLocalStorage()
@@ -31,7 +32,23 @@ export class TaskComponent implements OnInit {
       task.name = this.taskNameBeforeEditing
       task.date = this.taskDateBeforeEditing
     }
+    this.taskService.updateTaskFromLocalStorage(task)
     task.editable = false
+  }
+
+  updateTaskFromLocalStorageStatus(task) {
+    let todos = this.taskService.getTaskFromLocalStorage()
+    todos.map(todo => {
+      if (task.completed) {
+        if (todo.name === task.name) {
+          todo.completed = true
+        }
+      } else {
+        todo.completed = false
+      }
+    })
+    localStorage.setItem('todos', JSON.stringify(todos))
+
   }
 
   cancelEdit(task) {

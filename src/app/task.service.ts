@@ -1,4 +1,6 @@
 import {Injectable} from '@angular/core';
+// import {Observable, of} from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +12,13 @@ export class TaskService {
   constructor() {
   }
 
-  // getTasks(): object[] {
-  //   return this.tasks
+  // getTasks(): Observable<object[]> {
+  //   return of (this.tasks)
   // }
 
   addTask(data) {
-    this.tasks.unshift(data)
+    // this.tasks.push(data)
+    this.tasks = [...this.tasks, data]
     this.sortByDateAndName()
     this.addTaskToLocalStorage()
   }
@@ -31,6 +34,18 @@ export class TaskService {
 
   getTaskFromLocalStorage() {
     return this.tasks = JSON.parse(localStorage.getItem('todos')) || []
+  }
+
+  updateTaskFromLocalStorage(task) {
+    let todos = this.getTaskFromLocalStorage()
+    todos.map(todo => {
+      if (todo.name === task.name) {
+        todo.date = task.date
+      } else if (todo.date === task.date) {
+        todo.name = task.name
+      }
+    })
+    localStorage.setItem('todos', JSON.stringify(todos))
   }
 
   deleteTaskFromLocalStorage(todo) {

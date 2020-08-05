@@ -30,6 +30,7 @@
               type="checkbox"
               id="task"
               [(ngModel)]="task.completed"
+              (ngModelChange)="updateTaskFromLocalStorageStatus(task)"
             >
           </label>
           <p
@@ -41,12 +42,11 @@
           </p>
           <ng-template #editDate>
             <input
-              type="text"
+              type="date"
               class="task-date-edit"
               [(ngModel)]="task.date"
               (keyup.enter)="doneEdit(task)"
               (keyup.escape)="cancelEdit(task)"
-              autofocus
             >
           </ng-template>
 
@@ -64,6 +64,7 @@
               [(ngModel)]="task.name"
               (keyup.enter)="doneEdit(task)"
               (keyup.escape)="cancelEdit(task)"
+              autofocus
             >
           </ng-template>
 

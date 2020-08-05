@@ -1,7 +1,7 @@
 import {Pipe, PipeTransform} from "@angular/core";
 
 @Pipe({
-  name: 'searchByDate'
+  name: 'searchByDate',
 })
 
 export class SearchByDatePipe implements PipeTransform{
