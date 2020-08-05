@@ -31,7 +31,7 @@ export class AddTaskComponent implements OnInit {
 
   addTask() {
     if (this.form.valid) {
-      this.taskService.addTask({...this.form.value})
+      this.taskService.addTask({...this.form.value, completed: false, editable: false})
       this.form.reset()
       this.invalidFormStyles = {border: '2px solid #333333'}
     } else {

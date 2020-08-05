@@ -93,6 +93,10 @@
     display: flex;
   }
 
+  .task-description .completed {
+    text-decoration: line-through;
+  }
+
   .task-date {
     margin: 0 20px;
   }

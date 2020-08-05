@@ -26,13 +26,57 @@
       <div class="task-wrapper">
         <div class="task-description">
           <label for="task">
-            <input type="checkbox" id="task">
+            <input
+              type="checkbox"
+              id="task"
+              [(ngModel)]="task.completed"
+            >
           </label>
-          <p class="task-date">{{task.date | date:'dd/MM/yyyy'}}.</p>
-          <p class="task-name">{{task.name}}</p>
+          <p
+            class="task-date"
+            *ngIf="!task.editable; else editDate"
+            [ngClass]="{completed: task.completed}"
+          >
+            {{task.date | date:'dd/MM/yyyy'}}.
+          </p>
+          <ng-template #editDate>
+            <input
+              type="text"
+              class="task-date-edit"
+              [(ngModel)]="task.date"
+              (keyup.enter)="doneEdit(task)"
+              (keyup.escape)="cancelEdit(task)"
+              autofocus
+            >
+          </ng-template>
+
+          <p
+            class="task-name"
+            *ngIf="!task.editable; else editName"
+            [ngClass]="{completed: task.completed}"
+          >
+            {{task.name}}
+          </p>
+          <ng-template #editName>
+            <input
+              type="text"
+              class="task-name-edit"
+              [(ngModel)]="task.name"
+              (keyup.enter)="doneEdit(task)"
+              (keyup.escape)="cancelEdit(task)"
+            >
+          </ng-template>
+
+
         </div>
         <div class="task-buttons">
-          <button class="edit">Edit</button>
+          <button
+            class="edit"
+            (click)="editTask(task)"
+            [disabled]="task.completed"
+          >
+            Edit</button>
+
           <button class="delete" (click)="deleteTask(task)">Delete</button>
         </div>
       </div>

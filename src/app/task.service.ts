@@ -30,11 +30,11 @@ export class TaskService {
   }
 
   getTaskFromLocalStorage() {
-    this.tasks = JSON.parse(localStorage.getItem('todos')) || []
+    return this.tasks = JSON.parse(localStorage.getItem('todos')) || []
   }
 
   deleteTaskFromLocalStorage(todo) {
-    let tasks = JSON.parse(localStorage.getItem('todos'))
+    let tasks = this.getTaskFromLocalStorage()
     tasks.map((task, index) => {
       if (task.name === todo.name) {
         tasks.splice(index, 1)
