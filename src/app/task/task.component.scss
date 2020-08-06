@@ -1,106 +1,1 @@
-.search-task {
-
-  margin-bottom: 30px;
-
-
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  input {
-    border: 2px solid #333333;
-    border-radius: 5px;
-    padding: 8px 0 8px 15px;
-    outline: none;
-  }
-
-  .search-task-wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .search-task__options {
-    width: 80%;
-  }
-
-  .search-task__description {
-    margin-bottom: 10px;
-  }
-
-  .search-task__name {
-    width: 70%;
-    position: relative;
-    top: 1px;
-    margin-right: 20px;
-  }
-
-  .search-task__name[placeholder] {
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  .search-task__name {
-    color: #333;
-  }
-
-  .search-task__date {
-    margin-right: 20px;
-    width: 20%;
-  }
-
-  .search-task__button {
-
-    align-self: flex-end;
-
-    button {
-      cursor: pointer;
-      padding: 10px 20px;
-      line-height: 20px;
-      background: #1961FE;
-      color: #fff;
-      border-radius: 5px;
-      border: none;
-      outline: none;
-    }
-  }
-
-}
-
-
-.tasks {
-  .task .container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .task-wrapper {
-    width: 100%;
-    border-bottom: 2px dashed #E9E8E9;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-  }
-
-  .task-description {
-    //position: relative;
-    display: flex;
-  }
-
-  .task-description .completed {
-    text-decoration: line-through;
-  }
-
-  .task-date {
-    margin: 0 20px;
-  }
-}
-
-
-
+.search-task {  margin-bottom: 30px;  h1 {    text-align: center;    margin-bottom: 20px;  }  p {    font-size: 16px;    margin-bottom: 10px;  }  input {    border: 2px solid #333333;    border-radius: 5px;    padding: 8px 0 8px 15px;    outline: none;  }  .search-task-wrapper {    display: flex;    justify-content: space-between;  }  .search-task__options {    width: 80%;  }  .search-task__description {    margin-bottom: 10px;  }  .search-task__name {    width: 70%;    position: relative;    top: 1px;    margin-right: 20px;  }  .search-task__name[placeholder] {    font-size: 16px;    line-height: 20px;  }  .search-task__name {    color: #333;  }  .search-task__date {    margin-right: 20px;    width: 20%;  }  .search-task__button {    align-self: flex-end;    button {      cursor: pointer;      padding: 10px 20px;      line-height: 20px;      background: #1961FE;      color: #fff;      border-radius: 5px;      border: none;      outline: none;    }  }}.tasks {  .task .container {    width: 100%;    display: flex;    justify-content: space-between;  }  .task-wrapper {    width: 100%;    border-bottom: 2px dashed #E9E8E9;    display: flex;    justify-content: space-between;    padding: 20px 0;    align-items: center;  }  .task-description {    display: flex;    align-items: center;    width: 80%;  }  .task-description .completed {    text-decoration: line-through;  }  input {    border: 2px solid #333333;    border-radius: 5px;    padding: 8px 0 8px 15px;    outline: none;  }  .task-date {    margin: 0 20px;  }  .task-date-edit {    margin: 0 20px;    width: 20%;  }  .task-name-edit {    width: 66%;    line-height: 20px;  }  .btn:last-child {    margin-left: 10px;  }  .btn.delete {    background: #d21818;  }  .btn.edit {    background: #1961FE;  }}

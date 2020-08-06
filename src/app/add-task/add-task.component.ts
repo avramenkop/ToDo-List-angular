@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 import {TaskService} from "../task.service";
@@ -9,8 +9,6 @@ import {TaskService} from "../task.service";
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent implements OnInit {
-
-  @Output() onAdd: EventEmitter<object[]> = new EventEmitter<object[]>()
 
   title: string = 'ToDo List';
   description: string = 'Add an item';
@@ -31,7 +29,12 @@ export class AddTaskComponent implements OnInit {
 
   addTask() {
     if (this.form.valid) {
-      this.taskService.addTask({...this.form.value, completed: false, editable: false})
+      this.taskService.addTask({
+        ...this.form.value,
+        completed: false,
+        editable: false,
+        id: new Date().getTime().toString()
+      })
       this.form.reset()
       this.invalidFormStyles = {border: '2px solid #333333'}
     } else {

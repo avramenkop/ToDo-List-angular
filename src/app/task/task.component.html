@@ -25,7 +25,7 @@
     <div class="container">
       <div class="task-wrapper">
         <div class="task-description">
-          <label for="task">
+          <label for="task" class="checkbox">
             <input
               type="checkbox"
               id="task"
@@ -72,13 +72,18 @@
         </div>
         <div class="task-buttons">
           <button
-            class="edit"
+            class="btn edit"
             (click)="editTask(task)"
             [disabled]="task.completed"
           >
             Edit</button>
 
-          <button class="delete" (click)="deleteTask(task)">Delete</button>
+          <button
+            class="btn delete"
+            (click)="deleteTask(task)"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

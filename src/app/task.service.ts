@@ -39,12 +39,19 @@ export class TaskService {
   updateTaskFromLocalStorage(task) {
     let todos = this.getTaskFromLocalStorage()
     todos.map(todo => {
-      if (todo.name === task.name) {
-        todo.date = task.date
-      } else if (todo.date === task.date) {
+      if (todo.id === task.id && todo.date === task.date) {
         todo.name = task.name
+      } else if (todo.id === task.id && todo.name === task.name) {
+        todo.date = task.date
+      } else if (todo.id === task.id && todo.date !== task.date && todo.name !== task.name) {
+        todo.name = task.name
+        todo.date = task.date
       }
     })
+
+    todos.sort((a, b) => a.date.localeCompare(b.date) ||
+      a.name.localeCompare(b.name))
+
     localStorage.setItem('todos', JSON.stringify(todos))
   }
 

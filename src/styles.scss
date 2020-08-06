@@ -18,3 +18,15 @@ body {
 .hidden {
   display: none;
 }
+
+.btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  line-height: 20px;
+  background: #109010;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+

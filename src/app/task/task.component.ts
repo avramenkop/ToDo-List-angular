@@ -39,16 +39,15 @@ export class TaskComponent implements OnInit {
   updateTaskFromLocalStorageStatus(task) {
     let todos = this.taskService.getTaskFromLocalStorage()
     todos.map(todo => {
-      if (task.completed) {
-        if (todo.name === task.name) {
+      if (todo.name === task.name && todo.date === task.date) {
+        if (task.completed) {
           todo.completed = true
+        } else {
+          todo.completed = false
         }
-      } else {
-        todo.completed = false
       }
     })
     localStorage.setItem('todos', JSON.stringify(todos))
-
   }
 
   cancelEdit(task) {
