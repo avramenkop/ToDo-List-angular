@@ -1,6 +1,4 @@
 import {Injectable} from '@angular/core';
-// import {Observable, of} from "rxjs";
-
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +10,7 @@ export class TaskService {
   constructor() {
   }
 
-  // getTasks(): Observable<object[]> {
-  //   return of (this.tasks)
-  // }
-
   addTask(data) {
-    // this.tasks.push(data)
     this.tasks = [...this.tasks, data]
     this.sortByDateAndName()
     this.addTaskToLocalStorage()

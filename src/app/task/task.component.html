@@ -19,7 +19,6 @@
 </div>
 
 
-
 <div class="tasks" *ngIf="taskService.tasks.length">
   <div class="task" *ngFor="let task of taskService.tasks | searchByName: searchTerm | searchByDate: searchDate">
     <div class="container">
@@ -76,7 +75,8 @@
             (click)="editTask(task)"
             [disabled]="task.completed"
           >
-            Edit</button>
+            Edit
+          </button>
 
           <button
             class="btn delete"

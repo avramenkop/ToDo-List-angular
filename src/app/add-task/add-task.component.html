@@ -4,13 +4,16 @@
     <p>{{description}}</p>
     <form [formGroup]="form" (ngSubmit)="addTask()">
       <div class="add-task__details">
-        <label class="">
+        <label>
           <input
             type="text"
             class="add-task__name"
             placeholder="Enter the task name"
             formControlName="name"
-            [ngStyle]="invalidFormStyles"
+            [ngClass]="{
+              valid: isValid,
+              invalid: !isValid
+            }"
           >
         </label>
         <label>
@@ -18,7 +21,10 @@
             type="date"
             class="add-task__date"
             formControlName="date"
-            [ngStyle]="invalidFormStyles"
+            [ngClass]="{
+              valid: isValid,
+              invalid: !isValid
+            }"
           >
         </label>
       </div>

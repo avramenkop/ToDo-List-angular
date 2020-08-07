@@ -15,6 +15,7 @@ export class AddTaskComponent implements OnInit {
   invalidFormStyles
 
   form: FormGroup
+  isValid = true
 
   constructor(private taskService: TaskService) {
   }
@@ -29,6 +30,7 @@ export class AddTaskComponent implements OnInit {
 
   addTask() {
     if (this.form.valid) {
+      this.isValid = true
       this.taskService.addTask({
         ...this.form.value,
         completed: false,
@@ -38,7 +40,7 @@ export class AddTaskComponent implements OnInit {
       this.form.reset()
       this.invalidFormStyles = {border: '2px solid #333333'}
     } else {
-      this.invalidFormStyles = {border: '2px solid red'}
+      this.isValid = false
     }
   }
 
