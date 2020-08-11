@@ -36,6 +36,12 @@ export class TaskComponent implements OnInit {
     task.editable = false
   }
 
+  cancelEdit(task) {
+    task.name = this.taskNameBeforeEditing
+    task.date = this.taskDateBeforeEditing
+    task.editable = false
+  }
+
   updateTaskFromLocalStorageStatus(task) {
     let todos = this.taskService.getTaskFromLocalStorage()
     todos.map(todo => {
@@ -48,12 +54,6 @@ export class TaskComponent implements OnInit {
       }
     })
     localStorage.setItem('todos', JSON.stringify(todos))
-  }
-
-  cancelEdit(task) {
-    task.name = this.taskNameBeforeEditing
-    task.date = this.taskDateBeforeEditing
-    task.editable = false
   }
 
   deleteTask(task) {

@@ -29,8 +29,8 @@ export class AddTaskComponent implements OnInit {
 
 
   addTask() {
-    this.isValid = true
     if (this.form.valid) {
+      this.isValid = true
       this.taskService.addTask({
         ...this.form.value,
         completed: false,
