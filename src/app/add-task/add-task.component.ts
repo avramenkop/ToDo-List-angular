@@ -12,10 +12,9 @@ export class AddTaskComponent implements OnInit {
 
   title: string = 'ToDo List';
   description: string = 'Add an item';
-  invalidFormStyles
 
   form: FormGroup
-  isValid = false
+  isValid = true
 
   constructor(private taskService: TaskService) {
   }
@@ -38,6 +37,8 @@ export class AddTaskComponent implements OnInit {
         id: new Date().getTime().toString()
       })
       this.form.reset()
+    } else {
+      this.isValid = false
     }
   }
 
