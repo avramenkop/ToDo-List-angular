@@ -10,7 +10,10 @@
             class="add-task__name"
             placeholder="Enter the task name"
             formControlName="name"
-            [ngStyle]="invalidFormStyles"
+            [ngClass]="{
+              validFormStyles: isValid,
+              invalidFormStyles: !isValid
+            }"
           >
         </label>
         <label>
