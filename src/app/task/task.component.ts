@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {TaskService} from "../task.service";
+import {Task} from '../task'
 
 @Component({
   selector: 'app-task',
@@ -9,10 +10,10 @@ import {TaskService} from "../task.service";
 })
 export class TaskComponent implements OnInit {
 
-  searchTerm = ''
-  searchDate = ''
-  taskNameBeforeEditing = ''
-  taskDateBeforeEditing = ''
+  searchTerm: string = ''
+  searchDate: string = ''
+  taskNameBeforeEditing: string = ''
+  taskDateBeforeEditing: string = ''
 
   constructor(public taskService: TaskService) {
   }
@@ -21,13 +22,13 @@ export class TaskComponent implements OnInit {
     this.taskService.getTaskFromLocalStorage()
   }
 
-  editTask(task) {
+  editTask(task: Task): void {
     this.taskNameBeforeEditing = task.name
     this.taskDateBeforeEditing = task.date
     task.editable = true
   }
 
-  doneEdit(task) {
+  doneEdit(task: Task): void {
     if (task.name.trim().length === 0 || task.date.trim().length === 0) {
       task.name = this.taskNameBeforeEditing
       task.date = this.taskDateBeforeEditing
@@ -36,13 +37,13 @@ export class TaskComponent implements OnInit {
     task.editable = false
   }
 
-  cancelEdit(task) {
+  cancelEdit(task: Task): void {
     task.name = this.taskNameBeforeEditing
     task.date = this.taskDateBeforeEditing
     task.editable = false
   }
 
-  updateTaskFromLocalStorageStatus(task) {
+  updateTaskFromLocalStorageStatus(task: Task): void {
     let todos = this.taskService.getTaskFromLocalStorage()
     todos.map(todo => {
       if (todo.name === task.name && todo.date === task.date) {
@@ -56,11 +57,11 @@ export class TaskComponent implements OnInit {
     localStorage.setItem('todos', JSON.stringify(todos))
   }
 
-  deleteTask(task) {
+  deleteTask(task: Task): void {
     this.taskService.deleteTask(task)
   }
 
-  resetDate() {
+  resetDate(): void {
     this.searchDate = null
   }
 

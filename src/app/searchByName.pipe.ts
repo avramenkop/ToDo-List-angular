@@ -1,5 +1,7 @@
 import {Pipe, PipeTransform} from "@angular/core";
 
+import {Task} from './task'
+
 
 @Pipe({
   name: 'searchByName'
@@ -8,7 +10,7 @@ import {Pipe, PipeTransform} from "@angular/core";
 export class SearchByNamePipe implements PipeTransform{
 
 
-  transform(todos, searchTerm): any {
+  transform(todos: Task[], searchTerm: string): Task[] {
     if (!searchTerm.trim()) {
       return todos
     }

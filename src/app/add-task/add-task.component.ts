@@ -14,12 +14,12 @@ export class AddTaskComponent implements OnInit {
   description: string = 'Add an item';
 
   form: FormGroup
-  isValid = true
+  isValid: boolean = true
 
   constructor(private taskService: TaskService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
@@ -27,7 +27,7 @@ export class AddTaskComponent implements OnInit {
   }
 
 
-  addTask() {
+  addTask(): void {
     if (this.form.valid) {
       this.isValid = true
       this.taskService.addTask({

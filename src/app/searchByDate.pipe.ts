@@ -1,11 +1,13 @@
 import {Pipe, PipeTransform} from "@angular/core";
 
+import {Task} from './task'
+
 @Pipe({
   name: 'searchByDate',
 })
 
 export class SearchByDatePipe implements PipeTransform{
-  transform(todos, searchDate) {
+  transform(todos: Task[], searchDate: string): Task[] {
     if (!searchDate) {
       return todos
     }

@@ -1,35 +1,37 @@
 import {Injectable} from '@angular/core';
 
+import {Task} from './task'
+
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  tasks = []
+  tasks: Task[] = []
 
   constructor() {
   }
 
-  addTask(data) {
+  addTask(data: Task): void {
     this.tasks = [...this.tasks, data]
     this.sortByDateAndName()
     this.addTaskToLocalStorage()
   }
 
-  deleteTask(todo) {
+  deleteTask(todo: Task): void {
     this.tasks = this.tasks.filter(task => task.name !== todo.name || task.date !== todo.date)
     this.deleteTaskFromLocalStorage(todo)
   }
 
-  addTaskToLocalStorage() {
+  addTaskToLocalStorage(): void {
     localStorage.setItem('todos', JSON.stringify(this.tasks))
   }
 
-  getTaskFromLocalStorage() {
+  getTaskFromLocalStorage(): Task[] {
     return this.tasks = JSON.parse(localStorage.getItem('todos')) || []
   }
 
-  updateTaskFromLocalStorage(task) {
+  updateTaskFromLocalStorage(task: Task): void {
     let todos = this.getTaskFromLocalStorage()
     todos.map(todo => {
       if (todo.id === task.id && todo.date === task.date) {
@@ -48,7 +50,7 @@ export class TaskService {
     localStorage.setItem('todos', JSON.stringify(todos))
   }
 
-  deleteTaskFromLocalStorage(todo) {
+  deleteTaskFromLocalStorage(todo: Task): void{
     let tasks = this.getTaskFromLocalStorage()
     tasks.map((task, index) => {
       if (task.name === todo.name) {
@@ -58,7 +60,7 @@ export class TaskService {
     })
   }
 
-  sortByDateAndName() {
+  sortByDateAndName(): void {
     this.tasks.sort((a, b) => a.date.localeCompare(b.date) ||
       a.name.localeCompare(b.name))
   }
